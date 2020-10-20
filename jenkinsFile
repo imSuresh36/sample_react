@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    tools{
+        nodejs 'node'
+    }
+
+    stages {
+        stage("clean workspace"){
+            steps{
+                sh 'sudo rm -rf ./build ./node_modules'
+            }
+        }
+        stage('Git clone'){
+            steps{
+                git "https://github.com/imSuresh36/sample_react"
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+        stage('Test') {
+            steps{
+                //test command
+                sh "echo testing"
+                sh "ls"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh "sudo cp ./build /var/www/html/sample_react"
+                sh "sudo service apache2 restart"
+            }
+        }
+    }
+}
+
