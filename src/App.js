@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          React App Hosted on Apache 2 Server using Jenkins
+          React App Hosted on Apache 2 Server using Jenkins and Github Webhook
         </p>
       </header>
     </div>
