@@ -5,8 +5,9 @@ pipeline {
     }
 
     stages {
-        stage("clean workspace"){
+        stage("init"){
             steps{
+                sh "echo Started Pipeline"
                 sh 'sudo rm -rf ./build ./node_modules'
             }
         }
